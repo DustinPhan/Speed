@@ -2,8 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CardClass : MonoBehaviour
+public class CardPosition : MonoBehaviour
 {
+    public GameObject
+
+    private int playerCardNumber(int cardNumber)
+    {
+
+    }
+
+    private void CardPositon()
+    {
+
+    }
+
+    private void CardRotation()
+    {
+        
+    }
+
     // Start is called before the first frame update
     void Start()
     {

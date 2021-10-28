@@ -9,6 +9,7 @@ public class CardClass
     //In that case, 
     public string cardValue;
     public string cardColorCode;
+    public Sprite cardSprite;
     public bool cardPowerUp;
     public string cardPowerCode;
 

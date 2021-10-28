@@ -15,23 +15,19 @@ public class PlayerCards : MonoBehaviour
         }
     }
 
-    private void start()
-    {
-
-    }
-
-
+    //Variables List
     private int n = 0;
+    public Sprite[] cardFace;
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        //Prints each card in the list
+        while (n < 52)
         {
             foreach (CardClass c in CardManager.Card.cards)
             {
-                Debug.Log(CardManager.Card.cards[n].cardValue);
-                n ++;
+                Debug.Log(CardManager.Card.cards[n].cardValue + CardManager.Card.cards[n].cardColorCode);
+                n++;
             }
         }
     }

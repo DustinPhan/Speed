@@ -25,10 +25,26 @@ public class CardManager : MonoBehaviour
     public int cardQuantity { get; set;}
     public string[] color { get; set; }
     public string[] value { get; set; }
+    public Sprite[] cardFace { get; set; }
     public List<CardClass> cards { get; set; }
         //We could have a slider that increases the amount of powerups, though whether we should depends on whether we can implement it
 
+    //Function List
 
+    //Randomizes the list (This code was copied and pasted directly from a stackflow page)
+    public void Shuffle<T>(List<T> list)
+    {
+        System.Random random = new System.Random();
+        int n = list.Count;
+        while (n > 1)
+        {
+            int k = random.Next(n);
+            n--;
+            T value = list[k];
+            list[k] = list[n];
+            list[n] = value;
+        }
+    }
 
     //_dialogue is set to this program (freshly made in the Dialogue{}) upon awakening
     void Awake()
@@ -39,10 +55,12 @@ public class CardManager : MonoBehaviour
     //Sets the values of the variable list (The Default, which can be changed based on new level conditions)
     void Start()
     {
+        //Sets the initial quantities in the variable list
         cardQuantity = 52;
         color = new string[] { "R", "G", "Y", "B" };
         value = new string[] { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
 
+        //Instiantiates the normal cards in each list item
         cards = new List<CardClass>();
         foreach(string C in color)
         {
@@ -51,6 +69,8 @@ public class CardManager : MonoBehaviour
                 cards.Add(new CardClass(V, C));
             }
         }
+
+        Shuffle(cards);
 
     }
 }

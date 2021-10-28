@@ -16,19 +16,34 @@ public class PlayerCards : MonoBehaviour
     }
 
     //Variables List
-    private int n = 0;
-    public Sprite[] cardFace;
+    private int n;
+    private int p = 0;
+    public Sprite[] faces;
+    public GameObject cardPrefab;
+
+    void Start()
+    {
+        //Instiantiates the normal cards in each list item
+        foreach (string C in CardManager.Card.color)
+        {
+            foreach (string V in CardManager.Card.value)
+            {
+                CardManager.Card.cards.Add(new CardClass(V, C, faces[p]));
+                p++;
+            }
+        }
+
+        CardManager.Card.Shuffle(CardManager.Card.cards);
+    }
 
     void Update()
     {
-        //Prints each card in the list
-        while (n < 52)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            foreach (CardClass c in CardManager.Card.cards)
-            {
-                Debug.Log(CardManager.Card.cards[n].cardValue + CardManager.Card.cards[n].cardColorCode);
-                n++;
-            }
+            n = 0;
+
+            Debug.Log(CardManager.Card.cards[n].cardValue + CardManager.Card.cards[n].cardColorCode);
+            n = n + 1;
         }
     }
 }

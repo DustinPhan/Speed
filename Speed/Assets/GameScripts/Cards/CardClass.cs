@@ -14,7 +14,7 @@ public class CardClass
     public string cardPowerCode;
 
     //Constructor for normal card
-    public CardClass(string value, string colorCode)
+    public CardClass(string value, string colorCode, Sprite sprite)
     {
         this.cardValue = value;
         this.cardColorCode = colorCode;
